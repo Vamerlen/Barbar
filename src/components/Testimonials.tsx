@@ -43,7 +43,7 @@ const Testimonials = () => {
       id: 4,
       name: "Asha Tesfaye",
       position: "Sports Professional",
-      quote: "As someone who's always in the public eye, having a reliable barber is essential. KMD PRO BARBER delivers every time with style and professionalism.",
+      quote: "As someone who always has meetings, having a reliable barber is essential. KMD PRO BARBER delivers every time with style and professionalism.",
       rating: 5,
       image: "https://i.pinimg.com/474x/cd/3d/eb/cd3deb598eac1b72f1a077b5e8f028c2.jpg"
     },
