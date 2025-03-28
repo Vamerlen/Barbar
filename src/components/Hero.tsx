@@ -37,7 +37,7 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center"
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://images.unsplash.com/photo-1593702288056-f773ed11695a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://th.bing.com/th/id/OIP.FPX5zHrBE2D_H1QarrxhRgHaE8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}
