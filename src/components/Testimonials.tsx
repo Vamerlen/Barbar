@@ -18,7 +18,7 @@ const Testimonials = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Esair Deventer",
+      name: "Finney Deventer",
       position: "Business Executive",
       quote: "KMD PRO BARBER is my go-to place for a perfect cut. The attention to detail and the professional service make every visit a great experience.",
       rating: 5,
@@ -31,14 +31,6 @@ const Testimonials = () => {
       quote: "I've been a loyal customer for over 3 years. The consistency in quality and service is what keeps me coming back. Highly recommended!",
       rating: 5,
       image: "https://i.pinimg.com/474x/67/74/b5/6774b55a1dd92cc9e85068f5a47d90fc.jpg"
-    },
-    {
-      id: 3,
-      name: " van Graan",
-      position: "Sports Professional",
-      quote: "As someone who's always in the public eye, having a reliable barber is essential. KMD PRO BARBER delivers every time with style and professionalism.",
-      rating: 5,
-      image: "https://i.pinimg.com/236x/17/ed/b8/17edb85ee7b01445993f1015626dd999.jpg"
     },
     {
       id: 3,
