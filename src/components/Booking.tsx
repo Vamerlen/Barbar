@@ -2,35 +2,17 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { format } from "date-fns";
-import { Calendar as CalendarIcon, Clock } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
-const Booking = () => {
+const Contact = () => {
   const { toast } = useToast();
-  const [date, setDate] = useState<Date | undefined>();
-  const [service, setService] = useState("");
-  const [time, setTime] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const timeSlots = [
-    "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
-    "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
-    "15:00", "15:30", "16:00", "16:30", "17:00", "17:30",
-  ];
-
-  const services = [
-    "Buzzcut", "Fade", "Beard Shave & Bald Haircut",
-    "Crew Cut ", "  Line Design + Haircut", "Beard Shave", "Hair Dye(All Colors) + Haircut",
-  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,199 +21,169 @@ const Booking = () => {
     // Simulate API call
     setTimeout(() => {
       toast({
-        title: "Booking Confirmed",
-        description: `Your appointment has been scheduled for ${format(date as Date, "EEEE, MMMM dd, yyyy")} at ${time}.`,
+        title: "Message Sent",
+        description: "Thank you for contacting us. We'll get back to you soon.",
       });
       
       // Reset form
-      setDate(undefined);
-      setTime("");
-      setService("");
       setName("");
       setEmail("");
-      setPhone("");
+      setMessage("");
       setIsSubmitting(false);
     }, 1500);
   };
 
+  const contactInfo = [
+    {
+      icon: <MapPin className="h-5 w-5 text-barber-gold" />,
+      title: "Our Location",
+      details: "599 Caterina Street, Pretoria, 0084",
+      link: "https://maps.app.goo.gl/tjdKC8eyj3e35cJE7",
+      linkText: "View on Map"
+    },
+    {
+      icon: <Phone className="h-5 w-5 text-barber-gold" />,
+      title: "Phone Number",
+      details: "+27 78 824 6963",
+      link: "tel:+27788246963",
+      linkText: "Call Us"
+    },
+    {
+      icon: <Mail className="h-5 w-5 text-barber-gold" />,
+      title: "Email Address",
+      details: "kdmprobarber@outlook.com",
+      link: "mailto:kdmprobarber@outlook.com",
+      linkText: "Send Email"
+    },
+    {
+      icon: <Clock className="h-5 w-5 text-barber-gold" />,
+      title: "Working Hours",
+      details: "Tuesday-Friday: 7AM-6PM, Sat-Sun: 9AM-2PM",
+      link: "#booking",
+      linkText: "Book Now"
+    }
+  ];
+
   return (
-    <section id="booking" className="py-24 bg-barber-cream/20">
+    <section id="contact" className="py-24 bg-white">
       <div className="section-container">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Book Your Appointment</h2>
-            <p className="section-subtitle">
-              Schedule your next grooming session with our expert barbers and experience premium service.
-            </p>
-          </div>
+        <div className="text-center mb-16">
+          <h2 className="section-title">Contact Us</h2>
+          <p className="section-subtitle">
+            Have questions or need to schedule an appointment? Get in touch with us today.
+          </p>
+        </div>
 
-          <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-            <div className="flex flex-col md:flex-row">
-              <div 
-                className="md:w-1/3 bg-barber-black p-8 text-white flex items-center justify-center"
-                style={{
-                  backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1634385030278-2e52b8e67521?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              >
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-4">Business Hours</h3>
-                  <div className="space-y-2 mb-6">
-                    <p className="flex justify-between">
-                      <span>Tuesday - Friday:</span>
-                      <span>7:00 AM - 6:00 PM</span>
-                    </p>
-                    <p className="flex justify-between">
-                      <span>Saturday & Sunday:</span>
-                      <span>9:00 AM - 2:00 PM</span>
-                    </p>
-                    <p className="flex justify-between">
-                      <span>Monday:</span>
-                      <span>Closed</span>
-                    </p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="lg:col-span-1">
+            <div className="space-y-8">
+              {contactInfo.map((item, index) => (
+                <div key={index} className="flex gap-4 hover-up p-4 rounded-lg glass-card">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-barber-gold/10 flex items-center justify-center">
+                    {item.icon}
                   </div>
-                  <div className="w-16 h-1 bg-barber-gold mx-auto mb-6"></div>
-                  <p className="text-sm opacity-80">
-                    Book your appointment today or walk in during business hours.
-                  </p>
+                  <div>
+                    <h4 className="font-medium text-lg mb-1">{item.title}</h4>
+                    <p className="text-muted-foreground mb-2">{item.details}</p>
+                    <a 
+                      href={item.link} 
+                      className="text-sm text-barber-gold hover:text-barber-gold/80 flex items-center gap-1"
+                    >
+                      {item.linkText}
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        className="h-3 w-3" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M9 5l7 7-7 7" 
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-              </div>
-
-              <div className="md:w-2/3 p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="service">Service</Label>
-                      <Select
-                        value={service}
-                        onValueChange={setService}
-                        required
-                      >
-                        <SelectTrigger id="service" className="w-full">
-                          <SelectValue placeholder="Select service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {services.map((svc) => (
-                            <SelectItem key={svc} value={svc}>
-                              {svc}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="date">Date</Label>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <Button
-                            id="date"
-                            variant="outline"
-                            className={cn(
-                              "w-full justify-start text-left font-normal",
-                              !date && "text-muted-foreground"
-                            )}
-                          >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
-                            {date ? format(date, "PPP") : "Select date"}
-                          </Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0">
-                          <Calendar
-                            mode="single"
-                            selected={date}
-                            onSelect={setDate}
-                            initialFocus
-                            disabled={(date) => 
-                              date < new Date(new Date().setHours(0, 0, 0, 0)) ||
-                              date.getDay() === 0 // Disable Sundays
-                            }
-                          />
-                        </PopoverContent>
-                      </Popover>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="time">Time</Label>
-                      <Select
-                        value={time}
-                        onValueChange={setTime}
-                        required
-                        disabled={!date}
-                      >
-                        <SelectTrigger id="time" className="w-full">
-                          <SelectValue placeholder="Select time">
-                            {time ? (
-                              <div className="flex items-center">
-                                <Clock className="mr-2 h-4 w-4" />
-                                {time}
-                              </div>
-                            ) : (
-                              "Select time"
-                            )}
-                          </SelectValue>
-                        </SelectTrigger>
-                        <SelectContent>
-                          {timeSlots.map((slot) => (
-                            <SelectItem key={slot} value={slot}>
-                              {slot}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Full Name</Label>
-                      <Input
-                        id="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                        placeholder="John Doe"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email Address</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        placeholder="john@example.com"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        required
-                        placeholder="+27 XX XXX XXXX"
-                      />
-                    </div>
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-barber-gold hover:bg-barber-gold/90 text-white py-6 text-base transition-all"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Booking..." : "Book Appointment"}
-                  </Button>
-                </form>
-              </div>
+              ))}
             </div>
           </div>
+
+          <div className="lg:col-span-2">
+            <div className="glass-card p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Your Name</Label>
+                    <Input
+                      id="name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      placeholder="John Doe"
+                      className="border-barber-gold/20 focus:border-barber-gold"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Your Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      placeholder="john@example.com"
+                      className="border-barber-gold/20 focus:border-barber-gold"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                    placeholder="How can we help you?"
+                    rows={5}
+                    className="border-barber-gold/20 focus:border-barber-gold"
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-barber-gold hover:bg-barber-gold/90 text-white flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    "Sending Message..."
+                  ) : (
+                    <>
+                      Send Message <Send className="h-4 w-4" />
+                    </>
+                  )}
+                </Button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+ <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d449.3398293982629!2d28.193667349094937!3d-25.713738275997176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sza!4v1743184600065!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div className="absolute top-10 left-10 max-w-xs bg-white p-6 rounded-xl shadow-xl md:block hidden">
+          <h4 className="font-bold text-xl mb-2">Visit Our Shop</h4>
+          <p className="text-muted-foreground mb-4">Experience the premium barbering service you deserve at our stylish location.</p>
+          <a 
+            href="#booking" 
+            className="btn-primary inline-block text-sm"
+          >
+            Book Appointment
+          </a>
         </div>
       </div>
     </section>
   );
 };
 
-export default Booking;
+export default Contact;
