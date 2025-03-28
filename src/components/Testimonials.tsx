@@ -34,7 +34,7 @@ const Testimonials = () => {
     },
     {
       id: 3,
-      name: "Kim van Graan",
+      name: "Kim Nwemba",
       position: "Sports Professional",
       quote: "As someone who's always in the public eye, having a reliable barber is essential. KMD PRO BARBER delivers every time with style and professionalism.",
       rating: 5,
