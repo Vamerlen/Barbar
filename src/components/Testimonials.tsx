@@ -53,7 +53,7 @@ const Testimonials = () => {
       position: "Sports Professional",
       quote: "As someone who's always in the public eye, having a reliable barber is essential. KMD PRO BARBER delivers every time with style and professionalism.",
       rating: 5,
-      image: "https://i.pinimg.com/236x/17/ed/b8/17edb85ee7b01445993f1015626dd999.jpg"
+      image: "https://i.pinimg.com/474x/cd/3d/eb/cd3deb598eac1b72f1a077b5e8f028c2.jpg"
     },
   ];
 
