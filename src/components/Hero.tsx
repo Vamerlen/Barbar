@@ -37,7 +37,7 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center"
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://th.bing.com/th/id/OIP.FPX5zHrBE2D_H1QarrxhRgHaE8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://media.istockphoto.com/id/937443868/photo/barber-giving-a-haircut-in-his-shop.jpg?s=612x612&w=0&k=20&c=wdcKDn9BnLe979S4BGQlYrKX8d4gBkRc4siYDQgPA-s=?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}
