@@ -170,18 +170,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      
-      <div className="mt-20 w-full h-96 relative">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114614.83576245284!2d28.04005857802582!3d-26.171671425258756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sJohannesburg%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1710242700787!5m2!1sen!2sus"
-          className="w-full h-full"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="KMD PRO BAR location"
-        ></iframe>
-
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d898.6797318094226!2d28.1937732963466!3d-25.71372860960522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfd8b823a3231b%3A0x1851d35889bed979!2sShop%20Smart!5e0!3m2!1sen!2sza!4v1743182748883!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div className="absolute top-10 left-10 max-w-xs bg-white p-6 rounded-xl shadow-xl md:block hidden">
           <h4 className="font-bold text-xl mb-2">Visit Our Shop</h4>
           <p className="text-muted-foreground mb-4">Experience the premium barbering service you deserve at our stylish location.</p>
